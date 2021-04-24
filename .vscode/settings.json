@@ -1,0 +1,10 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:nlw-5}/src/database/database.sqlite",
+      "name": "mateus"
+    }
+  ]
+}
