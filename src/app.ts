@@ -3,7 +3,7 @@ import "./database";
 import usersRoutes from './routes/usersRoutes';
 import settingsRoutes from './routes/settingsRoutes';
 import messagesRoutes from './routes/messagesRoutes';
-import teste from './routes/teste';
+import home from './routes/home';
 
 import path from 'path';
 
@@ -26,7 +26,7 @@ class App{
     this.app.use('/users',usersRoutes);
     this.app.use('/settings',settingsRoutes);
     this.app.use('/messages',messagesRoutes);
-    this.app.use('/teste',teste);
+    this.app.use('/home',home);
 
 
 
