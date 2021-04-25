@@ -26,7 +26,7 @@ class SettingsController{
  
     const settings = settingsService.findUserName(username);
     
-    return settings;
+    return response.json(settings);
   }
 
   async update(request:Request,response:Response){
@@ -35,7 +35,7 @@ class SettingsController{
 
     const settingsService= new SettingsService();
  
-    const settings = settingsService.update(username,chat);
+    const settings = await settingsService.update(username,chat);
     
     return response.json(settings);
   }
