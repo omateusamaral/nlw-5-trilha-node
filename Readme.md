@@ -14,7 +14,7 @@ CHAT E ADMIN
 https://user-images.githubusercontent.com/37390930/116140063-25489980-a6ad-11eb-980f-b8e37bf09c94.mp4
 <hr/>
 
-<p>A NLW é uma grande oportunidade para descobrir coisas novas e não foi diferente nessa edição. Nela pude entender mais como funciona typescript no nodejs comunicando com uma base de dados( um dos pontos que preciso me aprofundar), nela também foi abordado como funciona a comunicação em tempo real com o <a href="https://socket.io/">SOCKET.IO</a> tudo isso colocando em prática(mão no código 😁). Com certeza os códigos utilizados aqui vou usar como referência para novas aplicações no futuro 🚀🚀🚀. 
+<p>A NLW é uma grande oportunidade para descobrir coisas novas tecnologias e não foi diferente nessa edição. Nela pude entender mais como funciona typescript no nodejs comunicando com uma base de dados( um dos pontos que preciso me aprofundar), nela também foi abordado como funciona a comunicação em tempo real com o <a href="https://socket.io/">SOCKET.IO</a> tudo isso colocando em prática(mão no código 😁). Com certeza os códigos utilizados aqui vou usar como referência para novas aplicações no futuro 🚀🚀🚀. 
 </p>
 
 <hr/>
