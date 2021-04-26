@@ -1,25 +1,27 @@
-import { getCustomRepository, Repository } from "typeorm"
+import { getCustomRepository, Repository } from "typeorm";
+import { ConnectionsRepository } from "../repositories/ConnectionsRepository";
 import { Connection } from "../entities/Connection";
-import {ConnectionsRepository } from '../repositories/ConnectionsRepository';
-interface IConnectionCreate{
-socket_id:string;
-user_id:string;
-admin_id?:string;
-id?:string;
 
-
+interface IConnectionCreate {
+  socket_id: string;
+  user_id: string;
+  admin_id?: string;
+  id?: string;
 }
-class ConnectionsService{
+
+class ConnectionsService {
   private connectionsRepository: Repository<Connection>;
-  constructor(){
-    this.connectionsRepository =getCustomRepository(ConnectionsRepository);
+
+  constructor() {
+    this.connectionsRepository = getCustomRepository(ConnectionsRepository);
   }
-  async create({socket_id,admin_id,id,user_id}:IConnectionCreate){
+
+  async create({ socket_id, user_id, admin_id, id }: IConnectionCreate) {
     const connection = this.connectionsRepository.create({
       socket_id,
+      user_id,
       admin_id,
       id,
-      user_id
     });
 
     await this.connectionsRepository.save(connection);
@@ -27,14 +29,41 @@ class ConnectionsService{
     return connection;
   }
 
-  async findByUserId(user_id:string){
+  async findByUserId(user_id: string) {
     const connection = await this.connectionsRepository.findOne({
-      user_id
+      user_id,
     });
 
     return connection;
   }
 
+  async findAllWithouthAdmin() {
+    const connections = await this.connectionsRepository.find({
+      where: { admin_id: null },
+      relations: ["user"],
+    });
+
+    return connections;
+  }
+
+  async findBySocketId(socket_id: string) {
+    const connection = await this.connectionsRepository.findOne({
+      socket_id,
+    });
+
+    return connection;
+  }
+
+  async updateAdminId(user_id: string, admin_id: string) {
+    await this.connectionsRepository
+      .createQueryBuilder()
+      .update(Connection)
+      .set({ admin_id })
+      .where("user_id = :user_id", {
+        user_id,
+      })
+      .execute();
+  }
 }
 
-export {ConnectionsService}
+export { ConnectionsService };
